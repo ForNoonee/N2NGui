@@ -1,0 +1,5 @@
+D:/code/New folder/virtual_network_gui/build/Desktop_Qt_5_15_2_MSVC2019_64bit-Release/CMakeFiles/virtual_network_gui.dir
+D:/code/New folder/virtual_network_gui/build/Desktop_Qt_5_15_2_MSVC2019_64bit-Release/CMakeFiles/edit_cache.dir
+D:/code/New folder/virtual_network_gui/build/Desktop_Qt_5_15_2_MSVC2019_64bit-Release/CMakeFiles/rebuild_cache.dir
+D:/code/New folder/virtual_network_gui/build/Desktop_Qt_5_15_2_MSVC2019_64bit-Release/CMakeFiles/virtual_network_gui_autogen_timestamp_deps.dir
+D:/code/New folder/virtual_network_gui/build/Desktop_Qt_5_15_2_MSVC2019_64bit-Release/CMakeFiles/virtual_network_gui_autogen.dir

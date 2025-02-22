@@ -1,0 +1,50 @@
+# ninja log v6
+25	334	7619344816280454	virtual_network_gui_autogen/timestamp	16cf03e9a658056f
+25	334	7619344816280454	virtual_network_gui_autogen/mocs_compilation.cpp	16cf03e9a658056f
+25	334	7619344816280454	D:/code/New folder/virtual_network_gui/build/Desktop_Qt_5_15_2_MSVC2019_64bit-Debug/virtual_network_gui_autogen/timestamp	16cf03e9a658056f
+17	24	7618292178811523	clean	423d399e6810f01
+83	616	7617418818197369	CMakeFiles/virtual_network_gui.dir/src/ui/mainwindow.cpp.obj	ee32eb6defe9e0c3
+25	334	7619344816280454	D:/code/New folder/virtual_network_gui/build/Desktop_Qt_5_15_2_MSVC2019_64bit-Debug/virtual_network_gui_autogen/mocs_compilation.cpp	16cf03e9a658056f
+335	2695	7619344816906181	CMakeFiles/virtual_network_gui.dir/virtual_network_gui_autogen/mocs_compilation.cpp.obj	1087aed553bf03fd
+3	16	7618292178686193	CMakeFiles/clean.additional	9999f49c0c425510
+339	2948	7619344816946161	CMakeFiles/virtual_network_gui.dir/src/main.cpp.obj	98575ac2ca4352e9
+3062	3268	7619344844180006	virtual_network_gui.exe	8e9955445df052aa
+133	1565	7619229282478445	CMakeFiles/virtual_network_gui.dir/src/ui/logindialog.cpp.obj	f820580b20dfea1f
+344	3062	7619344816991279	CMakeFiles/virtual_network_gui.dir/src/ui/controlpanel.cpp.obj	6d8b229a72d71a8d
+12	245	7619346763668486	build.ninja	3ddf08e7c16cf99c
+90	921	7619320100515150	CMakeFiles/virtual_network_gui.dir/src/ui/RemoteDatabaseHandler.cpp.obj	16c61c59d0c6682
+36	360	7619347330531004	virtual_network_gui_autogen/timestamp	16cf03e9a658056f
+36	360	7619347330531004	virtual_network_gui_autogen/mocs_compilation.cpp	16cf03e9a658056f
+36	360	7619347330531004	D:/code/New folder/virtual_network_gui/build/Desktop_Qt_5_15_2_MSVC2019_64bit-Debug/virtual_network_gui_autogen/timestamp	16cf03e9a658056f
+36	360	7619347330531004	D:/code/New folder/virtual_network_gui/build/Desktop_Qt_5_15_2_MSVC2019_64bit-Debug/virtual_network_gui_autogen/mocs_compilation.cpp	16cf03e9a658056f
+361	2128	7619347331249126	CMakeFiles/virtual_network_gui.dir/virtual_network_gui_autogen/mocs_compilation.cpp.obj	1087aed553bf03fd
+366	2469	7619347331294228	CMakeFiles/virtual_network_gui.dir/src/main.cpp.obj	98575ac2ca4352e9
+27	405	7619348103262934	virtual_network_gui_autogen/timestamp	16cf03e9a658056f
+27	405	7619348103262934	virtual_network_gui_autogen/mocs_compilation.cpp	16cf03e9a658056f
+27	405	7619348103262934	D:/code/New folder/virtual_network_gui/build/Desktop_Qt_5_15_2_MSVC2019_64bit-Debug/virtual_network_gui_autogen/timestamp	16cf03e9a658056f
+27	405	7619348103262934	D:/code/New folder/virtual_network_gui/build/Desktop_Qt_5_15_2_MSVC2019_64bit-Debug/virtual_network_gui_autogen/mocs_compilation.cpp	16cf03e9a658056f
+406	2764	7619348104056888	CMakeFiles/virtual_network_gui.dir/virtual_network_gui_autogen/mocs_compilation.cpp.obj	1087aed553bf03fd
+410	3041	7619348104097330	CMakeFiles/virtual_network_gui.dir/src/main.cpp.obj	98575ac2ca4352e9
+415	3250	7619348104137427	CMakeFiles/virtual_network_gui.dir/src/ui/controlpanel.cpp.obj	6d8b229a72d71a8d
+24	96	7619348266201890	virtual_network_gui_autogen/timestamp	16cf03e9a658056f
+24	96	7619348266201890	virtual_network_gui_autogen/mocs_compilation.cpp	16cf03e9a658056f
+24	96	7619348266201890	D:/code/New folder/virtual_network_gui/build/Desktop_Qt_5_15_2_MSVC2019_64bit-Debug/virtual_network_gui_autogen/timestamp	16cf03e9a658056f
+24	96	7619348266201890	D:/code/New folder/virtual_network_gui/build/Desktop_Qt_5_15_2_MSVC2019_64bit-Debug/virtual_network_gui_autogen/mocs_compilation.cpp	16cf03e9a658056f
+23	93	7619348380877205	virtual_network_gui_autogen/timestamp	16cf03e9a658056f
+23	93	7619348380877205	virtual_network_gui_autogen/mocs_compilation.cpp	16cf03e9a658056f
+23	93	7619348380877205	D:/code/New folder/virtual_network_gui/build/Desktop_Qt_5_15_2_MSVC2019_64bit-Debug/virtual_network_gui_autogen/timestamp	16cf03e9a658056f
+23	93	7619348380877205	D:/code/New folder/virtual_network_gui/build/Desktop_Qt_5_15_2_MSVC2019_64bit-Debug/virtual_network_gui_autogen/mocs_compilation.cpp	16cf03e9a658056f
+94	1135	7619348381588881	CMakeFiles/virtual_network_gui.dir/src/ui/serverlistupdater.cpp.obj	d2ee98619e32f631
+1135	1294	7619348392002096	virtual_network_gui.exe	eb89a9a76c046ddf
+25	100	7619350230857747	virtual_network_gui_autogen/timestamp	16cf03e9a658056f
+25	100	7619350230857747	virtual_network_gui_autogen/mocs_compilation.cpp	16cf03e9a658056f
+25	100	7619350230857747	D:/code/New folder/virtual_network_gui/build/Desktop_Qt_5_15_2_MSVC2019_64bit-Debug/virtual_network_gui_autogen/timestamp	16cf03e9a658056f
+25	100	7619350230857747	D:/code/New folder/virtual_network_gui/build/Desktop_Qt_5_15_2_MSVC2019_64bit-Debug/virtual_network_gui_autogen/mocs_compilation.cpp	16cf03e9a658056f
+100	1883	7619350231609623	CMakeFiles/virtual_network_gui.dir/src/ui/controlpanel.cpp.obj	6d8b229a72d71a8d
+1883	2032	7619350249438554	virtual_network_gui.exe	eb89a9a76c046ddf
+24	103	7619350845489625	virtual_network_gui_autogen/timestamp	16cf03e9a658056f
+24	103	7619350845489625	virtual_network_gui_autogen/mocs_compilation.cpp	16cf03e9a658056f
+24	103	7619350845489625	D:/code/New folder/virtual_network_gui/build/Desktop_Qt_5_15_2_MSVC2019_64bit-Debug/virtual_network_gui_autogen/timestamp	16cf03e9a658056f
+24	103	7619350845489625	D:/code/New folder/virtual_network_gui/build/Desktop_Qt_5_15_2_MSVC2019_64bit-Debug/virtual_network_gui_autogen/mocs_compilation.cpp	16cf03e9a658056f
+103	1826	7619350846280267	CMakeFiles/virtual_network_gui.dir/src/ui/controlpanel.cpp.obj	6d8b229a72d71a8d
+1826	1958	7619350863498664	virtual_network_gui.exe	eb89a9a76c046ddf

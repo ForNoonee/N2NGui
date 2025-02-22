@@ -1,0 +1,11 @@
+# ninja log v6
+5	139	7618299305108781	virtual_network_gui_autogen/timestamp	9a7cc2a04ec612a9
+5	139	7618299305108781	virtual_network_gui_autogen/mocs_compilation.cpp	9a7cc2a04ec612a9
+5	139	7618299305108781	D:/code/New folder/virtual_network_gui/build/Desktop_Qt_5_15_2_MSVC2019_64bit-Release/virtual_network_gui_autogen/timestamp	9a7cc2a04ec612a9
+5	139	7618299305108781	D:/code/New folder/virtual_network_gui/build/Desktop_Qt_5_15_2_MSVC2019_64bit-Release/virtual_network_gui_autogen/mocs_compilation.cpp	9a7cc2a04ec612a9
+146	702	7618299305474549	CMakeFiles/virtual_network_gui.dir/src/ui/RemoteDatabaseHandler.cpp.obj	cd93bfd89eb9e959
+151	706	7618299305509669	CMakeFiles/virtual_network_gui.dir/src/ui/logindialog.cpp.obj	f30296c53056c4b1
+141	783	7618299305419422	CMakeFiles/virtual_network_gui.dir/virtual_network_gui_autogen/mocs_compilation.cpp.obj	f115ced6afe37290
+148	921	7618299305489604	CMakeFiles/virtual_network_gui.dir/src/ui/controlpanel.cpp.obj	b66e7353ac0222de
+144	992	7618299305439413	CMakeFiles/virtual_network_gui.dir/src/main.cpp.obj	53d210bf982dd35f
+992	1106	7618299313928042	virtual_network_gui.exe	20714c1d90ad8990
