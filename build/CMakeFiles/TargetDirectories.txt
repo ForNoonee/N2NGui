@@ -1,3 +1,0 @@
-D:/code/New folder/virtual_network_gui/build/CMakeFiles/virtual_network_gui.dir
-D:/code/New folder/virtual_network_gui/build/CMakeFiles/ALL_BUILD.dir
-D:/code/New folder/virtual_network_gui/build/CMakeFiles/ZERO_CHECK.dir
