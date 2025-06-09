@@ -1,5 +1,11 @@
 <RCC>
-    <qresource prefix="/new/prefix1">
-        <file>C:/Users/fanfa/OneDrive/Desktop/icon.jpg</file>
+    <qresource prefix="/">
+        <file>ControlPanel.qml</file>
+        <file>ServerTableView.qml</file>
+        <file>StatusIndicator.qml</file>
+        <file>ControlButtons.qml</file>
+        <file>Login.qml</file>
+        <file>main.qml</file>
+        <file>../resource/icon.jpg</file>
     </qresource>
 </RCC>

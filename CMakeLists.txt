@@ -1,12 +1,16 @@
 cmake_minimum_required(VERSION 3.15)
 project(virtual_network_gui)
+set(CMAKE_PREFIX_PATH "D:\\qt6\\6.6.3\\msvc2019_64")
+find_package(Qt6 REQUIRED COMPONENTS
+    Core
+    Widgets
+    Network
+    Sql
+    Concurrent
+    Qml        # 添加 QML 模块
+    Quick      # 添加 Quick 模块
+)
 
-find_package(Qt5 REQUIRED COMPONENTS Core Widgets Network Sql Concurrent)  # 添加Qt SQL查找
-
-include_directories(${Qt5Core_INCLUDE_DIRS})
-include_directories(${Qt5Widgets_INCLUDE_DIRS})
-include_directories(${Qt5Network_INCLUDE_DIRS})
-include_directories(${Qt5Sql_INCLUDE_DIRS})  # 添加Qt SQL包含目录
 set(RESOURCES_DIR ${CMAKE_CURRENT_SOURCE_DIR}/resources)
 
 # 添加Qt的所有包含目录
@@ -47,11 +51,13 @@ set_target_properties(MyN2N PROPERTIES
 )
 
 target_link_libraries(MyN2N PRIVATE
-    Qt5::Core
-    Qt5::Widgets
-    Qt5::Network
-    Qt5::Sql
-    Qt5::Concurrent  # 添加Qt SQL链接
+    Qt6::Core
+    Qt6::Widgets
+    Qt6::Network
+    Qt6::Sql
+    Qt6::Concurrent  # 添加Qt SQL链接
+    Qt6::Qml       # 添加 QML 模块
+    Qt6::Quick     # 添加 Quick 模块
     Iphlpapi
     Ws2_32
 )

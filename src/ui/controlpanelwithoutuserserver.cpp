@@ -178,29 +178,29 @@ void ControlPanelWithoutUserServer::installDriver() {
     ShellExecuteW(nullptr, L"runas", (LPCWSTR)driverPath.utf16(), nullptr, nullptr, SW_SHOWNORMAL);
 }
 void ControlPanelWithoutUserServer::cleanupNetworkInterfaces() {
-    // 通过设备管理器卸载 TAP 适配器
-    DEVINST devInstance;
-    CONFIGRET cr;
+    // // 通过设备管理器卸载 TAP 适配器
+    // DEVINST devInstance;
+    // CONFIGRET cr;
 
-    // 使用W版本函数和宽字符串
-    cr = CM_Locate_DevNodeW(
-        &devInstance,
-        L"ROOT\\NET\\0000",  // 确保使用L前缀
-        CM_LOCATE_DEVNODE_NORMAL
-        );
+    // // 使用W版本函数和宽字符串
+    // cr = CM_Locate_DevNodeW(
+    //     &devInstance,
+    //     L"ROOT\\NET\\0000",  // 确保使用L前缀
+    //     CM_LOCATE_DEVNODE_NORMAL
+    //     );
 
-    if (cr == CR_SUCCESS) {
-        cr = CM_Request_Device_EjectW(  // 使用W版本
-            devInstance,
-            nullptr,    // 无确认对话框
-            nullptr,    // 无回调
-            0,          // 无标志
-            0           // 无保留
-            );
-        qDebug() << (cr == CR_SUCCESS ? "移除成功" : "移除失败");
-    } else {
-        qWarning() << "找不到设备，错误码:" << cr;
-    }
+    // if (cr == CR_SUCCESS) {
+    //     cr = CM_Request_Device_EjectW(  // 使用W版本
+    //         devInstance,
+    //         nullptr,    // 无确认对话框
+    //         nullptr,    // 无回调
+    //         0,          // 无标志
+    //         0           // 无保留
+    //         );
+    //     qDebug() << (cr == CR_SUCCESS ? "移除成功" : "移除失败");
+    // } else {
+    //     qWarning() << "找不到设备，错误码:" << cr;
+    // }
 }
 bool ControlPanelWithoutUserServer::isN2NConnected() {
     QString ip = getN2NInterfaceIP();
