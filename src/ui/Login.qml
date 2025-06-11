@@ -1,119 +1,35 @@
-// Login.qml
 import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.15
-import QtQuick.Window 2.15
-import Backend2 1.0  // 导入注册的模块
+import Qt5Compat.GraphicalEffects
+import QtQuick.Controls.Material 2.15
 
 ApplicationWindow {
     id: root
     visible: true
-    width: 400
-    height: 600
-    title: qsTr("登录")
+    width: 360
+    height: 640
+    minimumWidth: 360
+    minimumHeight: 560
+    title: qsTr("ForNoone")
+    color: "#F5F6FA"
+    flags: Qt.Window | Qt.FramelessWindowHint
 
-    required property LoginBackend backend
-    required property var bridge
-    signal showControlPanel()
+    // Material 主题配置
+    Material.theme: Material.Light
+    Material.accent: "#7E57C2"
+    Material.elevation: 6
 
-    ColumnLayout {
-        anchors.centerIn: parent
-        spacing: 20
-
-        Image {
-            source: "qrc:/images/logo.png"
-            Layout.preferredWidth: 120
-            Layout.preferredHeight: 120
-            fillMode: Image.PreserveAspectFit
-        }
-
-        TextField {
-            id: accountField
-            placeholderText: qsTr("账号")
-            Layout.preferredWidth: 280
-            Layout.preferredHeight: 50
-            background: Rectangle {
-                radius: 15
-                border.color: accountField.activeFocus ? "#0066CC" : "#CCCCCC"
-                border.width: 2
-            }
-            onTextChanged: backend.updateInputValidity()
-        }
-
-        TextField {
-            id: passwordField
-            placeholderText: qsTr("密码")
-            echoMode: TextInput.Password
-            Layout.preferredWidth: 280
-            Layout.preferredHeight: 50
-            background: Rectangle {
-                radius: 15
-                border.color: passwordField.activeFocus ? "#0066CC" : "#CCCCCC"
-                border.width: 2
-            }
-            onTextChanged: backend.updateInputValidity()
-        }
-
-        CheckBox {
-            id: agreementCheck
-            text: qsTr("同意用户协议")
-            onCheckedChanged: backend.setAgreementChecked(checked)
-        }
-
-        Button {
-            id: loginButton
-            text: qsTr("登录")
-            enabled: backend.loginEnabled
-            Layout.preferredWidth: 200
-            Layout.preferredHeight: 40
-            background: Rectangle {
-                radius: 5
-                color: loginButton.down ? "#E0E0E0" : "#FFFFFF"
-                border.color: "#CCCCCC"
-            }
-            onClicked: {
-                loginButton.enabled = false
-                backend.validateLogin(accountField.text, passwordField.text)
-            }
-        }
-
-        Button {
-            text: qsTr("服务器设置")
-            onClicked: serverDialog.open()
-        }
-    }
-
-    Dialog {
-        id: serverDialog
-        title: qsTr("服务器配置")
-        standardButtons: Dialog.Ok | Dialog.Cancel
-
-        ColumnLayout {
-            TextField {
-                id: ipField
-                text: backend.currentServer
-                placeholderText: qsTr("服务器地址")
-                validator: RegularExpressionValidator {
-                    regularExpression: /^(\d{1,3}\.){3}\d{1,3}$/
-                }
-            }
-
-            TextField {
-                id: portField
-                text: backend.currentServerPort
-                placeholderText: qsTr("端口")
-                validator: IntValidator { bottom: 1; top: 65535 }
-            }
-        }
-
-        onAccepted: backend.updateServerConfig(ipField.text, parseInt(portField.text))
-    }
+    // 配色方案
+    readonly property color textColor: Material.foreground
+    readonly property color hintColor: "#A0A4B8"
 
     Connections {
         target: backend
+
         function onLoginSuccess() {
-            root.showControlPanel()
-            root.close()
+            pageLoader.source = "ControlPanel.qml"
+            root.visible = false
         }
 
         function onLoginFailed(reason) {
@@ -128,10 +44,203 @@ ApplicationWindow {
         }
     }
 
+    Loader {
+        id: pageLoader
+        anchors.fill: parent
+    }
+
+    // 登录卡片容器
+    Rectangle {
+        id: loginContainer
+        anchors.centerIn: parent
+        width: Math.min(parent.width * 0.9, 400)
+        height: contentLayout.height + 80
+        radius: 24
+        color: Material.backgroundColor
+        layer.enabled: true
+        layer.effect: DropShadow {
+            radius: 24
+            color: "#20000000"
+            transparentBorder: true
+        }
+
+        ColumnLayout {
+            id: contentLayout
+            anchors {
+                top: parent.top
+                left: parent.left
+                right: parent.right
+                margins: 32
+            }
+            spacing: 24
+
+            // 标题部分
+            ColumnLayout {
+                spacing: 16
+                Layout.alignment: Qt.AlignHCenter
+
+                Image {
+                    source: "qrc:///resource/icon.jpg"
+                    Layout.preferredWidth: 72
+                    Layout.preferredHeight: 72
+                    fillMode: Image.PreserveAspectFit
+                }
+
+                Text {
+                    text: qsTr("欢迎回来")
+                    font: Material.font("headline6")
+                    color: textColor
+                }
+            }
+
+            // 输入表单
+            ColumnLayout {
+                spacing: 16
+                Layout.fillWidth: true
+                Layout.leftMargin: 15  // 统一左右边距
+                Layout.rightMargin: 15
+
+                // 用户名输入框
+                CustomTextField {
+                    id: accountField
+                    placeholderText: qsTr("用户名或邮箱")
+                    leftIcon: "qrc:///resource/user.svg"
+                    Layout.fillWidth: true
+                    Layout.preferredHeight: 56
+                    Layout.minimumWidth: 250  // 设置最小宽度
+                }
+
+                // 密码输入框
+                CustomTextField {
+                    id: passwordField
+                    placeholderText: qsTr("密码")
+                    leftIcon: "qrc:///resource/lock.svg"
+                    echoMode: TextInput.Password
+                    Layout.fillWidth: true
+                    Layout.preferredHeight: 56
+                    Layout.minimumWidth: 250  // 保证相同最小宽度
+                }
+            }
+
+            // 协议和忘记密码
+            RowLayout {
+                Layout.fillWidth: true
+                spacing: 16  // 控制输入框之间的垂直间距
+                Layout.leftMargin: 16  // 左右边距统一
+                Layout.rightMargin: 16
+
+                CheckBox {
+                    id: agreementCheck
+                    text: qsTr("同意协议")
+                    Material.foreground: hintColor
+                    Material.accent: root.Material.accent
+                }
+
+                Item { Layout.fillWidth: true }
+
+                TextButton {
+                    text: qsTr("忘记密码?")
+                    onClicked: {/* 忘记密码逻辑 */}
+                }
+            }
+
+            // 登录按钮
+            Button {
+                id: loginButton
+                text: qsTr("登录")
+                Layout.fillWidth: true
+                Layout.preferredHeight: 48
+                enabled: agreementCheck.checked
+                Material.background: Material.accent
+                Material.foreground: "white"
+                Material.elevation: 2
+
+                onClicked: backend.validateLogin(accountField.text, passwordField.text)
+            }
+        }
+    }
+
+    // 底部注册提示
+    Row {
+        anchors {
+            bottom: parent.bottom
+            horizontalCenter: parent.horizontalCenter
+            margins: 24
+        }
+        spacing: 4
+
+        Text {
+            text: qsTr("没有账号?")
+            color: hintColor
+            font.pixelSize: 14
+        }
+
+        TextButton {
+            text: qsTr("立即注册")
+            onClicked: {/* 跳转注册 */}
+        }
+    }
+
+    // 自定义输入框组件
+    component CustomTextField: TextField {
+        property alias leftIcon: icon.source
+        Material.background: "transparent"
+        Material.accent: root.Material.accent
+        // 统一尺寸设置
+        leftPadding: 48
+        rightPadding: 16
+        font.pixelSize: 16
+        color: root.textColor
+        verticalAlignment: TextInput.AlignVCenter
+
+        background: Rectangle {
+            radius: 8
+            color: Material.hintTextColor
+            opacity: 0.1
+            border.width: parent.activeFocus ? 2 : 1
+            border.color: parent.activeFocus ? Material.accent : "transparent"
+        }
+
+        Image {
+            id: icon
+            anchors {
+                left: parent.left
+                leftMargin: 16
+                verticalCenter: parent.verticalCenter
+            }
+            sourceSize: Qt.size(24, 24)
+            opacity: 0.6
+        }
+    }
+
+    // 文本按钮组件
+    component TextButton: Text {
+        property alias mouseArea: ma
+        signal clicked
+
+        font.pixelSize: 12
+        color: hintColor
+
+        MouseArea {
+            id: ma
+            anchors.fill: parent
+            cursorShape: Qt.PointingHandCursor
+            onClicked: parent.clicked()
+        }
+
+        states: State {
+            name: "hovered"
+            when: ma.containsMouse
+            PropertyChanges { target: parent; color: Material.accent }
+        }
+    }
+
+    // 错误提示对话框
     Dialog {
         id: errorDialog
         title: qsTr("登录失败")
         standardButtons: Dialog.Ok
+        Material.accent: Material.Red
     }
 
     Dialog {

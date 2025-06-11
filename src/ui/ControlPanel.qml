@@ -9,10 +9,10 @@ ApplicationWindow {
     visible: true
     width: 800
     height: 600
-    title: "VPN Client"
+    title: "N2N组网控制面板"
     Material.theme: Material.Light
     Material.accent: Material.Blue
-
+    id: mainwindow
     ControlPanelBackend {
         id: backend
         onConnectionStatusChanged: {
@@ -160,6 +160,28 @@ ApplicationWindow {
                 }
             }
         }
+        //日志
+        Dialog {
+            id: logDialog
+            title: "运行日志"
+            width: parent.width * 0.9
+            height: parent.height * 0.7
+            modal: true
+
+            ScrollView {
+                anchors.fill: parent
+                TextArea {
+                    id: logDisplay
+                    text: backend.logs
+                    wrapMode: Text.Wrap
+                    readOnly: true
+                    font.family: "Consolas"
+                    selectByMouse: true
+                }
+            }
+
+            standardButtons: Dialog.Close
+        }
 
         // 操作按钮区域
         RowLayout {
@@ -172,6 +194,20 @@ ApplicationWindow {
                 onClicked: backend.installDriver()
                 Material.background: Material.Blue
                 Material.foreground: "white"
+            }
+
+            Button {
+                text: "显示日志"
+                onClicked: {
+                    let component = Qt.createComponent("LogView.qml")
+                    if (component.status === Component.Ready) {
+                        // 关键修改：设置父对象为主窗口
+                        let win = component.createObject(mainwindow, {
+                            "backend": backend
+                        })
+                        win.show()
+                    }
+                }
             }
 
             Button {

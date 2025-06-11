@@ -23,39 +23,37 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
     // // 加载QML界面
     // engine->load(QUrl(QStringLiteral("qrc:/ControlPanel.qml")));
     // 注册QML类型（必须在QML引擎创建前完成）
-    qmlRegisterType<ControlPanelBackend>("Backend", 1, 0, "ControlPanelBackend");
-    qmlRegisterType<ServerInfoModel>("NetworkModels", 1, 0, "ServerInfoModel");
-    // 创建登录窗口
-    LoginWidget loginWindow;
+ //    qmlRegisterType<ControlPanelBackend>("Backend", 1, 0, "ControlPanelBackend");
+ //    qmlRegisterType<ServerInfoModel>("NetworkModels", 1, 0, "ServerInfoModel");
+ //    // 创建登录窗口
+ //    LoginWidget loginWindow;
 
-    QObject::connect(&loginWindow, &LoginWidget::loginSuccessful, [&]() {
-        // 关闭登录窗口
-        loginWindow.close();
+ //    QObject::connect(&loginWindow, &LoginWidget::loginSuccessful, [&]() {
+ //        // 关闭登录窗口
+ //        loginWindow.close();
 
-        // 创建QML引擎（必须使用动态分配保持生命周期）
+ //        // 创建QML引擎（必须使用动态分配保持生命周期）
+ //        QQmlApplicationEngine *engine = new QQmlApplicationEngine();
+ //        ControlPanelBackend *backend = new ControlPanelBackend();
+ //        // 加载QML界面
+ //        engine->rootContext()->setContextProperty("backend", backend);
+ //        engine->load(QUrl(QStringLiteral("qrc:/ControlPanel.qml")));
+
+
+ //        // 绑定窗口关闭事件
+ //        QObject::connect(engine->rootObjects().first(), &QObject::destroyed,
+ //                         engine, &QQmlApplicationEngine::deleteLater);
+
+ //    });
+
+ //    loginWindow.show();
+ //    return app.exec();
+       //qmlRegisterType<LoginBackend>("Backend", 1, 0, "loginBackend");
+        qmlRegisterType<ControlPanelBackend>("Backend", 1, 0, "ControlPanelBackend");
+        qmlRegisterType<ServerInfoModel>("NetworkModels", 1, 0, "ServerInfoModel");
         QQmlApplicationEngine *engine = new QQmlApplicationEngine();
-        ControlPanelBackend *backend = new ControlPanelBackend();
-        // 加载QML界面
+        LoginBackend *backend = new LoginBackend();
         engine->rootContext()->setContextProperty("backend", backend);
-        engine->load(QUrl(QStringLiteral("qrc:/ControlPanel.qml")));
-
-        QObject::connect(backend, &ControlPanelBackend::currentIpChanged, []() {
-            qDebug() << "Current IP changed in C++";
-        });
-        // 错误处理
-        if (engine->rootObjects().isEmpty()) {
-            qFatal("Failed to load QML interface!");
-            delete engine;
-            QCoreApplication::exit(-1);
-            return;
-        }
-
-        // 绑定窗口关闭事件
-        QObject::connect(engine->rootObjects().first(), &QObject::destroyed,
-                         engine, &QQmlApplicationEngine::deleteLater);
-
-    });
-
-    loginWindow.show();
-    return app.exec();
+        engine->load(QUrl(QStringLiteral("qrc:/Login.qml")));
+       return app.exec();
 }

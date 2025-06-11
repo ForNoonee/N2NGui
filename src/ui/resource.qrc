@@ -1,11 +1,13 @@
 <RCC>
     <qresource prefix="/">
         <file>ControlPanel.qml</file>
-        <file>ServerTableView.qml</file>
+        <file>LogView.qml</file>
         <file>StatusIndicator.qml</file>
         <file>ControlButtons.qml</file>
         <file>Login.qml</file>
         <file>main.qml</file>
         <file>../resource/icon.jpg</file>
+        <file>../resource/lock.svg</file>
+        <file>../resource/user.svg</file>
     </qresource>
 </RCC>

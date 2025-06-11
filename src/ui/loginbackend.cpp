@@ -23,7 +23,10 @@ void LoginBackend::setCurrentServer(QString server) {
     m_currentServer = server;
     emit currentServerChanged(server);
 }
-
+bool LoginBackend::Onlogin(const QString& account, const QString& password){
+    validateLogin(account,password);
+    return 0;
+}
 void LoginBackend::setCurrentServerPort(quint16 port) {
     if (m_currentServerPort == port)
         return;

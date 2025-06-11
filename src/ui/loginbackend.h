@@ -12,7 +12,6 @@ class LoginBackend : public QObject {
 
 public:
     explicit LoginBackend(QObject* parent = nullptr);
-
     // 属性访问器
     QString currentServer() const;
     quint16 currentServerPort() const;
@@ -20,6 +19,7 @@ public:
     void setCurrentServer(QString server);
     void setCurrentServerPort(quint16 port);
 public slots:
+    Q_INVOKABLE bool Onlogin(const QString& account, const QString& password);
     void validateLogin(const QString& account, const QString& password);
     void checkServerStatus();
     void updateServerConfig(const QString& ip, quint16 port);
