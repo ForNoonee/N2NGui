@@ -6,12 +6,12 @@
 #include <QSqlDatabase>
 #include <QVariant>
 #include <QRegularExpression>
-#include<QApplication>
 #include<QSettings>
 #include<QFileInfo>
 #include<QDebug>
 #include<QTcpSocket>
 #include<QThread>
+#include<QGuiApplication>
 RemoteDatabaseHandler::RemoteDatabaseHandler(const std::string& host1, int port1)
     : connectionName(QString("PostgreSQL_%1").arg(quintptr(this)))
 {
@@ -49,6 +49,7 @@ bool RemoteDatabaseHandler::ensureConnection() {
         if(db.open()) {
             if(db.isValid()) {
                 qInfo() << "connected";
+                //QMessageBox::information(nullptr,"服务器连接","服务器连接成功");
                 return true;
             }
         }
@@ -56,6 +57,7 @@ bool RemoteDatabaseHandler::ensureConnection() {
                     << db.lastError().driverText()
                     << "\n详细错误:"
                     << db.lastError().databaseText();
+        //QMessageBox::information(nullptr,"服务器连接","服务器连接失败");
         QThread::msleep(1000);
     }
     return false;
@@ -73,7 +75,7 @@ RemoteDatabaseHandler::DatabaseConfig RemoteDatabaseHandler::loadDatabaseConfig(
     const QString DEFAULT_PASSWORD = "Shuowoaini0123";
 
     // 查找配置文件路径
-    QString configPath = QCoreApplication::applicationDirPath() + "/config.ini";
+    QString configPath = QGuiApplication::applicationDirPath() + "/config.ini";
 
     if(!QFileInfo::exists(configPath)){
         qFatal("配置文件 config.ini 未找到！路径：%s", qUtf8Printable(configPath));

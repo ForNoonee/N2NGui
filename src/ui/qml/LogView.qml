@@ -12,7 +12,7 @@ Window {
     minimumWidth: 400
     minimumHeight: 300
     color: Material.BlueGrey
-    flags: Qt.Window | Qt.FramelessWindowHint
+    //flags: Qt.Window | Qt.FramelessWindowHint
     // 确保窗口关闭时销毁实例
     //onClosing: destroy()
 

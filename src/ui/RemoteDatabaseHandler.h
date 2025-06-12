@@ -5,6 +5,7 @@
 #include <vector>
 #include <QtSql/QSqlDatabase>
 #include <QtSql/QSqlQuery>
+#include <QCryptographicHash> // 添加头文件
 
 class RemoteDatabaseHandler {
 public:
@@ -15,7 +16,7 @@ public:
     QStringList getServerInfo();
     bool isConnected() const;
     bool reconnect();
-
+    static QString computeHash(const QString& password);
 private:
     QString host;
     int port;

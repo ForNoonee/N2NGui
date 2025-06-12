@@ -11,7 +11,7 @@ class LoginBackend : public QObject {
     Q_PROPERTY(bool loginEnabled READ loginEnabled NOTIFY loginEnabledChanged)
 
 public:
-    explicit LoginBackend(QObject* parent = nullptr);
+    explicit LoginBackend(QObject* parent = nullptr) ;
     // 属性访问器
     QString currentServer() const;
     quint16 currentServerPort() const;

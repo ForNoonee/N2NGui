@@ -1,6 +1,6 @@
-import QtQuick 2.15
+import QtQuick
 import QtQuick.Controls 2.15
-import QtQuick.Layouts 1.15
+import QtQuick.Layouts 2.15
 import Qt5Compat.GraphicalEffects
 import QtQuick.Controls.Material 2.15
 
@@ -88,7 +88,7 @@ ApplicationWindow {
 
                 Text {
                     text: qsTr("欢迎回来")
-                    font: Material.font("headline6")
+                    //font: Material.font("headline6")
                     color: textColor
                 }
             }

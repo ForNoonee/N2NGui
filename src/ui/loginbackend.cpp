@@ -50,13 +50,20 @@ void LoginBackend::validateLogin(const QString& account, const QString& password
 }
 
 void LoginBackend::checkServerStatus() {
-    QtConcurrent::run([this]() {
+    QPointer<LoginBackend> guard(this); // 防止野指针
+
+    QtConcurrent::run([guard]() {
+        if(!guard) return;
+
         RemoteDatabaseHandler handler(
-            m_currentServer.toStdString(),
-            m_currentServerPort
+            guard->m_currentServer.toStdString(),
+            guard->m_currentServerPort
             );
+
         bool online = handler.tryConnect();
-        emit serverOnlineChecked(online);
+        QMetaObject::invokeMethod(guard, [guard, online](){
+            if(guard) guard->serverOnlineChecked(online);
+        });
     });
 }
 
